@@ -37,12 +37,12 @@ export const Button = styled.button`
   background-color: transparent;
   border-color: transparent;
   transform: scale(1);
-  color: gray;
+  color: blue;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {
     transform: scale(1.1);
-    color: #38bdbddc;
+    color: #ff0;
   }
 `;
