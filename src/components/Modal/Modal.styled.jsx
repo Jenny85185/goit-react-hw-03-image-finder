@@ -8,7 +8,7 @@ export const Backdrop = styled.div`
   height: 100%;
   animation-name: Opacity;
   animation-duration: 700ms;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color:rgba(117, 190, 218, 0.5);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   overflow-y: auto;
   transition-property: transform, opacity, visibility;
