@@ -44,6 +44,7 @@ export const Info = styled.p`
   display: flex;
   align-items: center;
   flex-direction: column;
+
 `;
 
 export const Comments = styled.b`

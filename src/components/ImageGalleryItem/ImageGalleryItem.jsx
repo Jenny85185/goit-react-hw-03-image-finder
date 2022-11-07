@@ -39,25 +39,25 @@ const ImageGalleryItem = ({
         <InfoWrapper>
           <Info>
             <b>
-              <FaRegThumbsUp size={24} color="#2bb9a9" />
+              <FaRegThumbsUp size={24} color="#ff0" />
             </b>
             <Comments> {likes}</Comments>
           </Info>
           <Info>
             <b>
-              <FaRegEye size={24} color="#2bb9a9" />
+              <FaRegEye size={24} color="#ff0" />
             </b>
             <Comments>{views}</Comments>
           </Info>
           <Info>
             <b>
-              <FaRegComments size={24} color="#2bb9a9" />
+              <FaRegComments size={24} color="#ff0" />
             </b>
             <Comments>{comments}</Comments>
           </Info>
           <Info>
             <b>
-              <FiDownload size={24} color="#2bb9a9" />
+              <FiDownload size={24} color="#ff0" />
             </b>
             <Comments>{downloads}</Comments>
           </Info>
