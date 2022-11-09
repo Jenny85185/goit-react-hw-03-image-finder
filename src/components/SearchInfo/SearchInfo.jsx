@@ -25,6 +25,8 @@ export default class SearchInfo extends Component {
     showModal: false,
     status: Status.IDLE,
     page: this.props.initialPage,
+    isLoading: false,
+      showLoadMore: false,
   };
 
   componentDidUpdate = prevProps => {
@@ -43,10 +45,13 @@ export default class SearchInfo extends Component {
               'Sorry, there are no images matching your search query. Please try again.'
             );
           }
+          const show = Math.ceil(page.totalHits / 12);
+              this.setState({ showLoadMore: page < show ? true : false });
           this.setState({
             pictures: [...pictures.hits],
             status: Status.RESOLVED,
           });
+          
         });
       });
     }
@@ -65,14 +70,17 @@ export default class SearchInfo extends Component {
 
         fetchPictures(nextQuery, page)
           .then(pictures => {
-            if (pictures.hits.length === 0 && pictures.totalHits !== 0) {
+            if (pictures.hits.length < 12 && pictures.totalHits < 0) {
               Notify.info(
                 "We're sorry, but you've reached the end of search results."
               );
+             
             }
+            
             this.setState(prevState => ({
               pictures: [...prevState.pictures, ...pictures.hits],
               status: Status.RESOLVED,
+               
             }));
           })
           .catch(() => {
