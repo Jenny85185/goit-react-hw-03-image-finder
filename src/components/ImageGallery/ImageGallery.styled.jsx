@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ImageList = styled.ul`
+export const ImageGalleryList = styled.ul`
   margin: 0 auto;
   display: grid;
   gap: 25px;

@@ -1,14 +1,18 @@
-import { Button } from './Button.styled';
 import PropTypes from 'prop-types';
+import { ButtonLoadMore } from './Button.styled';
 
-const ButtonLoadMore = ({ incrementPage }) => (
-  <Button type="button" onClick={incrementPage}>
-    load more
-  </Button>
-);
-
-export default ButtonLoadMore;
-
-ButtonLoadMore.propTypes = {
-  incrementPage: PropTypes.func.isRequired,
+const Button = ({ nextPage }) => {
+  return (
+    <>
+      <ButtonLoadMore type="button" onClick={nextPage}>
+        Load more
+      </ButtonLoadMore>
+    </>
+  );
 };
+
+Button.prototypes = {
+  nextPage: PropTypes.func.isRequired,
+};
+
+export default Button;

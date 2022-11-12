@@ -1,17 +1,18 @@
-import Loader from 'react-loader-spinner';
+import {Audio} from 'react-loader-spinner';
 
-const LoaderSpinner = () => {
+const Loader = () => {
   return (
     <>
-      <Loader
+      <Audio
         className="loader"
         type="Bars"
-        color="orange"
+        color="blue"
         height={100}
         width={100}
+        position="center"
       />
     </>
   );
 };
 
-export default LoaderSpinner ;
+export default Loader ;

@@ -6,45 +6,48 @@ import { Backdrop, ModalWindow, ModalImage, Description } from './Modal.styled';
 const modalRoot = document.querySelector('#modal-root');
 
 class Modal extends Component {
+  static propTypes = {
+    toggleModal: PropTypes.func.isRequired,
+    largeImage: PropTypes.string.isRequired,
+  };
+
   componentDidMount() {
-    window.addEventListener('keydown', this.handleEscClose);
+    window.addEventListener('keydown', this.handleKeyDown);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleEscClose);
+    window.removeEventListener('keydown', this.handleKeyDown);
   }
 
-  handleEscClose = e => {
-    if (e.code === 'Escape') {
-      this.props.onClose();
-    }
+  handleKeyDown = e => {
+    e.code === 'Escape' && this.props.toggleModal();
   };
 
-  handleBackdropClose = e => {
-    if (e.currentTarget === e.target) {
-      this.props.onClose();
-    }
+  handleBackdropClick = e => {
+    e.target === e.currentTarget && this.props.toggleModal();
   };
 
   render() {
-    const { largeImage, tags} = this.props;
+    const { handleBackdropClick } = this;
+    const { largeImage,tags } = this.props;
 
-    return createPortal(
-      <Backdrop onClick={this.handleBackdropClose}>
-        <ModalWindow>
+    return createPortal (
+      <Backdrop onClick={handleBackdropClick}>
+       <ModalWindow>
           <ModalImage src={largeImage} alt="" />
-          <Description>description: {tags}</Description>
+           <Description>description: {tags}</Description>
         </ModalWindow>
       </Backdrop>,
-      modalRoot
+       modalRoot
     );
   }
 }
 
-Modal.propTypes = {
+Modal.prototypes = {
+  alt: PropTypes.string.isRequired,
   largeImage: PropTypes.string.isRequired,
-  tags: PropTypes.string.isRequired,
-  onClose: PropTypes.func.isRequired,
+  onModalClick: PropTypes.func.isRequired,
+    tags: PropTypes.string.isRequired,
 };
 
 export default Modal;

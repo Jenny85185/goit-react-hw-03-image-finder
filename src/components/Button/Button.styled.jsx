@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
+export const  ButtonLoadMore = styled.button`
   display: block;
   margin: 20px auto;
   width: 150px;
