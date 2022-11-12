@@ -19,7 +19,6 @@ class App extends Component {
     error: null,
     totalResalts: [],
     showButton: false,
-    tags: '',
   };
 
   componentDidUpdate(_, prevState) {
@@ -64,7 +63,6 @@ class App extends Component {
       searchData: searchData,
       page: 1,
       images: [],
-      tags: ' ',
     });
   };
 
@@ -73,10 +71,9 @@ class App extends Component {
   };
 
   openModal = index => {
-    this.setState(({ images }) => ({
+    this.setState(({ images}) => ({
       showModal: true,
       largeImage: images[index].largeImageURL,
-      tags: ' ',
     }));
   };
 
@@ -86,7 +83,7 @@ class App extends Component {
 
   render() {
     const { toggleModal, openModal, nextPage, onSubmit } = this;
-    const { images, isLoading, largeImage, tags, showModal, showButton } =
+    const { images, isLoading, largeImage,  showModal, showButton } =
       this.state;
 
     return (
@@ -99,7 +96,6 @@ class App extends Component {
           <Modal
             toggleModal={toggleModal}
             largeImage={largeImage}
-            tags={tags}
           />
         )}
         {isLoading && <Loader />}

@@ -16,12 +16,14 @@ export const GalleryItemCard = styled.li`
     transform: scale(1.03);
     box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
   }
+   margin-top:20px;
 `;
 
 export const ImageWrapper = styled.div`
   width: 100%;
   height: 250px;
   border: 0px solid transparent;
+ 
 `;
 export const GalleryItemImage = styled.img`
   width: 100%;
