@@ -1,6 +1,6 @@
 import fetchImages from 'components/FetchApi/fetchApi';
 import { Component } from 'react';
-import { ToastContainer, toast } from 'react-toastify'; 
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Searchbar from 'components/Searchbar';
 import ImageGallery from 'components/ImageGallery';
@@ -19,13 +19,12 @@ class App extends Component {
     error: null,
     totalResalts: [],
     showButton: false,
-     tags: '',
+    tags: '',
   };
 
   componentDidUpdate(_, prevState) {
     const prevPage = prevState.page;
     const prevSearchData = prevState.searchData;
-    // const totalImages = this.state.totalResalts;
     const { searchData, page } = this.state;
 
     if (prevPage !== page || prevSearchData !== searchData) {
@@ -39,7 +38,6 @@ class App extends Component {
           }
           this.setState(({ images }) => ({
             images: [...images, ...data.data.hits],
-           
           }));
           this.setState({
             isLoading: false,
@@ -66,7 +64,7 @@ class App extends Component {
       searchData: searchData,
       page: 1,
       images: [],
-      tags:" ",
+      tags: ' ',
     });
   };
 
@@ -78,8 +76,7 @@ class App extends Component {
     this.setState(({ images }) => ({
       showModal: true,
       largeImage: images[index].largeImageURL,
-      tags:" ",
-
+      tags: ' ',
     }));
   };
 
@@ -89,7 +86,8 @@ class App extends Component {
 
   render() {
     const { toggleModal, openModal, nextPage, onSubmit } = this;
-    const { images, isLoading, largeImage, tags, showModal, showButton } = this.state;
+    const { images, isLoading, largeImage, tags, showModal, showButton } =
+      this.state;
 
     return (
       <>
@@ -98,7 +96,11 @@ class App extends Component {
           <ImageGallery images={images} openModal={openModal} />
         )}
         {showModal && (
-          <Modal toggleModal={toggleModal} largeImage={largeImage}  tags={tags} />
+          <Modal
+            toggleModal={toggleModal}
+            largeImage={largeImage}
+            tags={tags}
+          />
         )}
         {isLoading && <Loader />}
         <ToastContainer autoClose={2500} />

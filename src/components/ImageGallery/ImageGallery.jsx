@@ -4,14 +4,20 @@ import { ImageGalleryList } from './ImageGallery.styled';
 
 const ImageGallery = ({ images, openModal }) => (
   <ImageGalleryList>
-    {images.map(({ id, webformatURL }, index) => (
-      <ImageGalleryItem
-        key={id}
-        webformatURL={webformatURL}
-        index={index}
-        openModal={openModal}
-      />
-    ))}
+    {images.map(
+      ({ id, webformatURL, likes, views, comments, downloads }, index) => (
+        <ImageGalleryItem
+          key={id}
+          webformatURL={webformatURL}
+          likes={likes}
+          views={views}
+          comments={comments}
+          downloads={downloads}
+          index={index}
+          openModal={openModal}
+        />
+      )
+    )}
   </ImageGalleryList>
 );
 
